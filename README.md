@@ -21,7 +21,7 @@ The purpose of the dq tool is to make simple storing test results and visualisat
   ```yml
   packages:
     - package: infinitelambda/dq_tools
-      version: [">=1.4.0", "<1.5.0"]
+      version: [">=1.8.0", "<1.9.0"]
   ```
 
 - (Optional) Configure schema in `dbt_project.yml` file:
@@ -149,6 +149,10 @@ Go to [dbt Hub](https://hub.getdbt.com/infinitelambda/dq_tools/latest/) and regi
 Since the version 1.3, the table `dq_issue_log` is made as dbt model, no more manual hook config :tada:.
 
 It should be created automatically within your upstream dbt command. If not, all you should do that is running the command: `dbt run -s dq_tools`.
+
+> [!NOTE]
+> If you already have a `metricflow_time_spine` model in your project, you will encounter a Compilation error when executing `dbt run -s dq_tools`. In this scenario, disable the `metricflow_time_spine` model by updating its configuration in your project (path: your_project/dbt_packages/dq_tools/models/04_metric/metricflow_time_spine).
+
 
 <details>
   <summary>For dq-tools legacy version >=1.0,<1.3</summary>
